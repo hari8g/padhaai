@@ -7,17 +7,9 @@ interface SponsorsSectionProps {
 }
 
 export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Duplicate sponsors multiple times for seamless infinite loop
-  // Calculate the width needed: each card is ~224px (w-56) + gap (24px) = ~248px
-  // For 29 sponsors: ~7192px per set
-  // We need at least 2 full sets visible + 1 more for seamless loop
-  const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
-
   return (
-    <section className="space-y-8 pt-8 border-t border-neutral-200 overflow-hidden section-glow p-6 md:p-8 rounded-lg">
-      <div>
+    <section className="space-y-8 pt-8 border-t border-neutral-200 section-glow p-6 md:p-8 rounded-lg">
+      <div className="animate-fade-in-up">
         <h2 className="text-2xl md:text-3xl font-medium mb-4 relative inline-block">
           Sponsors
           <span className="absolute bottom-0 left-0 w-16 h-0.5 bg-red-600 mt-2"></span>
@@ -27,42 +19,17 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
         </p>
       </div>
 
-      {/* Carousel Container */}
-      <div 
-        className="relative py-8"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        {/* Gradient overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
-
-        {/* Carousel */}
-        <div className="overflow-hidden">
-          <div
-            className="flex gap-6"
-            style={{
-              animation: isPaused
-                ? "none"
-                : "scroll 30s linear infinite",
-            }}
-          >
-            {duplicatedSponsors.map((sponsor, index) => (
-              <SponsorCard 
-                key={`${sponsor}-${index}`} 
-                sponsor={sponsor} 
-                index={index}
-              />
-            ))}
-          </div>
+      {/* Scrollable Sponsors Grid */}
+      <div className="overflow-x-auto pb-4 -mx-6 md:-mx-8 px-6 md:px-8">
+        <div className="flex gap-6 min-w-max md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:min-w-0 md:gap-8">
+          {sponsors.map((sponsor, index) => (
+            <SponsorCard 
+              key={sponsor} 
+              sponsor={sponsor} 
+              index={index}
+            />
+          ))}
         </div>
-      </div>
-
-      {/* Scroll indicators */}
-      <div className="flex items-center justify-center gap-2 pt-4">
-        <div className="h-1 w-1 rounded-full bg-neutral-300 animate-pulse" />
-        <div className="h-1 w-1 rounded-full bg-neutral-300 animate-pulse" style={{ animationDelay: "0.2s" }} />
-        <div className="h-1 w-1 rounded-full bg-neutral-300 animate-pulse" style={{ animationDelay: "0.4s" }} />
       </div>
     </section>
   );
