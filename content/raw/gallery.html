@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Paadhai NGO</title>
+    <!-- favicons Icons -->
+    	<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/azino-icons.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+		
+	<link rel="stylesheet" href="https://www.jqueryscript.net/demo/lightbox2/dist/css/lightbox.min.css">
+	<style>
+		.paddhaigallery .galleryimg img {padding:8px; display: inline-grid; vertical-align: top;}
+
+		.gallery{ min-height:1140px; }
+		.auto{ min-height:auto; }
+
+		.gallery .gallery-items .example-image-link{
+			float: left;
+			width:25%;
+			position: relative;
+		}
+		.gallery .gallery-items .example-image-link.hide{
+			display: none;
+		}
+		.gallery .gallery-items .example-image-link.show{
+			display: block;
+			animation: show .5s ease;
+		}
+		@keyframes show{
+			0%{
+				opacity:0;
+				transform: scale(0.9);
+			}
+			100%{
+				opacity:1;
+				transform: scale(1);
+			}
+		}
+
+
+		.gallery .gallery-items .item img{
+			width: 100%;
+			display: block;
+		}
+		.gallery .gallery-items .item .caption{
+			position: absolute;
+			left:0px;
+			bottom:0;
+			background-color: rgba(0,0,0,.5);
+			padding:10px;
+			width: 100%;
+			color:#ffffff;
+			text-align: center;
+		}
+		.pagination{
+			display:block !important;
+			width: 100%;
+			float: right;
+			padding:15px 0px 15px 15px;
+			text-align: right;
+		}
+		.pagination div{
+			display: inline-block;
+			margin:0 10px;
+		}
+		.pagination .page{
+			color:gray;
+		}
+		.pagination .prev,.pagination .next{
+		 color:#000;
+		 border:1px solid #000;
+		 font-size:15px;
+		 padding:7px 15px;
+		 cursor: pointer;
+		}
+
+		.pagination .prev.disabled,
+		.pagination .next.disabled{
+			border-color: gray;
+			color:gray;
+			pointer-events: none;
+		}
+
+		.item img{width:200px;}
+	</style>
+</head>
+
+<body>
+    <div class="preloader">
+        <img class="preloader__image" src="assets/imgs/paadhai_ngo_logo.png" width="120" alt="paadhai_ngo_logo" />
+    </div><!-- /.preloader -->
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="container">
+                <div class="inner-container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-2">
+                            <div style="margin-top:-10px;"class="logo-box">
+                                <a href="index.php#home" aria-label="logo image"><img style="margin-left:-40px;margin-top:10px;" class="left-logo" src="assets/imgs/paadhai_ngo_logo.png" title="Paadhai NGO" width="80" alt="Paadhai NGO"></a>
+                                <span class="fa fa-bars mobile-nav__toggler"></span>
+                            </div><!-- /.logo-box -->
+                        </div><!-- /.col-sm-12 -->
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10 d-none d-md-none d-lg-none d-xl-block">
+                            <nav class="main-menu dynamic-radius">
+                                <ul class="main-menu__list">
+                                    <li> <a href="index.php"><i id="color" class="fa fa-home"></i></a>  </li>
+                                    <li class="dropdown">
+                                        <a href="index.php#second">Paadhai, The Way </a>
+                                        <ul>
+                                            <li><a href="paadhai-philosophy.php">Paadhai Philosophy </a></li>
+                                            <li><a href="what-we-do.php">What we do? </a></li>
+											<li><a href="our-people.php">Our People</a></li>
+                                        </ul>
+                                    </li>
+									<li class="dropdown"><a href="index.php#third">Our Programs</a>
+                                        <ul>
+                                            <li><a href="education-training.php">Education </a></li>
+											<li><a href="community-support.php">Community Support &  Development </a></li>
+											<li><a href="sustainable-environment.php">Sustainable Environment </a></li>
+											<li><a href="our-projects.php">Our Projects </a></li>
+                                        </ul>
+                                    </li>
+									<li class="dropdown"><a href="index.php#fourth">Our Stories</a>
+                                        <ul>
+											<li><a href="supplementary.php">Supplementary Education centers</a></li>
+                                            <li><a href="tribal.php">Tribal School and Community Development </a></li>
+                                            <li><a href="reforestation.php">Reforestation, with livelihood support </a></li>
+											<li><a href="content.php">Content curation and Mentoring </a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="dropdown"><a href="index.php#fifth">Get Involved & Make a difference</a>
+                                        <ul>
+											<li><a href="donation.php">Donate</a></li>
+											<li><a href="volunteers.php">Volunteer</a></li>
+                                            <li><a href="fundraise.php">Fundraise</a></li>
+                                        </ul>
+                                    </li>
+
+									<li><a id="res" href="index.php#sixth">Resources</a></li>
+                                    
+                                </ul>
+                                <!-- /.main-menu__list -->
+                            </nav>
+                            <!-- /.main-menu -->
+                            <!--<div class="main-header__info">
+                                <ul class="list-unstyled main-header__info-list">
+                                    <li>
+                                        <i class="azino-icon-email"></i>
+                                        <a href="mailto:support@paadhai.org">support@paadhai.org</a>
+                                    </li>
+                                    <li>
+                                        <i class="azino-icon-telephone"></i>
+                                        <a href="tel:08041103132">080-41103132</a>
+                                    </li>
+                                </ul><!-- /.list-unstyled -->
+                                <!--<div class="main-header__language">
+                                    
+                                    <label for="language-header" class="sr-only">select language</label>
+                                    <select class="selectpicker" id="google_translate_element"></select>
+                                </div><!-- /.main-header__language -->
+                            <!--</div>--><!-- /.main-header__info -->
+                        </div><!-- /.col-sm-12 -->
+                    </div><!-- /.row -->
+                </div><!-- /.inner-container -->
+            </div><!-- /.container -->
+        </header><!-- /.main-header -->
+
+        <div class="stricky-header stricked-menu">
+            <div class="container">
+                <div class="logo-box">
+                    <a href="index.php"><img src="assets/imgs/paadhai_ngo_logo.png" title="Paadhai NGO" width="101" alt="PAADHAI NGO" /></a>
+                </div><!-- /.logo-box -->
+                <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+            </div><!-- /.container -->
+        </div><!-- /.stricky-header -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/banner.jpg);"></div>
+            <!-- /.page-header__bg -->
+            <div class="container">
+                <h2>Gallery</h2>
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+		<section class="pb-50 paddhaigallery auto">
+			<div class="container">
+				<div class="pagination">
+					<div class="prev" onclick="myFunction(-1)" id="prev" style="color:orange;"><</div>
+					<div class="page">Page <span class="page-num"></span></div>
+					<div class="next" onclick="myFunction(1)"  id="next" style="color:orange;">></div>
+				</div>
+				<div class="gallery-items galleryimg">
+					
+      
+        
+         <a  class="example-image-link" id="dem0" data-lightbox="example-set" data-title="">
+			 <img id="demo0" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a> 
+       <a  class="example-image-link" id="dem1" data-lightbox="example-set" data-title="">
+       <img id="demo1" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem2" data-lightbox="example-set" data-title="">
+			 <img id="demo2" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem3" data-lightbox="example-set" data-title="">
+       <img id="demo3" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem4" data-lightbox="example-set" data-title="">
+       <img id="demo4" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem5" data-lightbox="example-set" data-title="">
+       <img id="demo5" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem6" data-lightbox="example-set" data-title="">
+       <img id="demo6" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       <a  class="example-image-link" id="dem7" data-lightbox="example-set" data-title="">
+       <img id="demo7" alt="gallery" style=" width: 280px;height: 230px;object-fit: cover;"/></a>
+       
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script>
+
+    window.onload=function(){
+	     myFunction(0);
+     }  
+
+   var users = ["images\/paadhai-gallery\/thumbnails\/1.jpg","images\/paadhai-gallery\/thumbnails\/10.jpg","images\/paadhai-gallery\/thumbnails\/100.jpg","images\/paadhai-gallery\/thumbnails\/101.jpg","images\/paadhai-gallery\/thumbnails\/102.jpg","images\/paadhai-gallery\/thumbnails\/103.jpg","images\/paadhai-gallery\/thumbnails\/104.jpg","images\/paadhai-gallery\/thumbnails\/105.jpeg","images\/paadhai-gallery\/thumbnails\/11.JPG","images\/paadhai-gallery\/thumbnails\/110.jpg","images\/paadhai-gallery\/thumbnails\/111.jpg","images\/paadhai-gallery\/thumbnails\/112.jpg","images\/paadhai-gallery\/thumbnails\/12.jpg","images\/paadhai-gallery\/thumbnails\/13.jpg","images\/paadhai-gallery\/thumbnails\/14.jpg","images\/paadhai-gallery\/thumbnails\/15.jpg","images\/paadhai-gallery\/thumbnails\/16.JPG","images\/paadhai-gallery\/thumbnails\/17.jpg","images\/paadhai-gallery\/thumbnails\/18.jpg","images\/paadhai-gallery\/thumbnails\/19.JPG","images\/paadhai-gallery\/thumbnails\/2.jpg","images\/paadhai-gallery\/thumbnails\/20.JPG","images\/paadhai-gallery\/thumbnails\/21.JPG","images\/paadhai-gallery\/thumbnails\/22.jpg","images\/paadhai-gallery\/thumbnails\/23.jpg","images\/paadhai-gallery\/thumbnails\/24.JPG","images\/paadhai-gallery\/thumbnails\/25.JPG","images\/paadhai-gallery\/thumbnails\/26.jpg","images\/paadhai-gallery\/thumbnails\/27.jpg","images\/paadhai-gallery\/thumbnails\/28.JPG","images\/paadhai-gallery\/thumbnails\/29.JPG","images\/paadhai-gallery\/thumbnails\/3.jpg","images\/paadhai-gallery\/thumbnails\/30.jpg","images\/paadhai-gallery\/thumbnails\/31.jpg","images\/paadhai-gallery\/thumbnails\/32.jpg","images\/paadhai-gallery\/thumbnails\/33.jpg","images\/paadhai-gallery\/thumbnails\/34.jpg","images\/paadhai-gallery\/thumbnails\/35.jpg","images\/paadhai-gallery\/thumbnails\/36.jpg","images\/paadhai-gallery\/thumbnails\/37.jpeg","images\/paadhai-gallery\/thumbnails\/38.jpeg","images\/paadhai-gallery\/thumbnails\/39.jpg","images\/paadhai-gallery\/thumbnails\/4.jpeg","images\/paadhai-gallery\/thumbnails\/40.jpg","images\/paadhai-gallery\/thumbnails\/41.jpg","images\/paadhai-gallery\/thumbnails\/42.jpg","images\/paadhai-gallery\/thumbnails\/43.jpg","images\/paadhai-gallery\/thumbnails\/44.jpg","images\/paadhai-gallery\/thumbnails\/45.jpg","images\/paadhai-gallery\/thumbnails\/46.JPG","images\/paadhai-gallery\/thumbnails\/47.jpg","images\/paadhai-gallery\/thumbnails\/48.JPG","images\/paadhai-gallery\/thumbnails\/49.JPG","images\/paadhai-gallery\/thumbnails\/5.jpg","images\/paadhai-gallery\/thumbnails\/50.jpg","images\/paadhai-gallery\/thumbnails\/51.jpg","images\/paadhai-gallery\/thumbnails\/52.jpg","images\/paadhai-gallery\/thumbnails\/53.jpg","images\/paadhai-gallery\/thumbnails\/54.jpg","images\/paadhai-gallery\/thumbnails\/55.jpg","images\/paadhai-gallery\/thumbnails\/56.jpg","images\/paadhai-gallery\/thumbnails\/57.jpg","images\/paadhai-gallery\/thumbnails\/58.jpg","images\/paadhai-gallery\/thumbnails\/59.jpg","images\/paadhai-gallery\/thumbnails\/6.jpg","images\/paadhai-gallery\/thumbnails\/60.jpg","images\/paadhai-gallery\/thumbnails\/61.jpg","images\/paadhai-gallery\/thumbnails\/62.jpg","images\/paadhai-gallery\/thumbnails\/63.jpg","images\/paadhai-gallery\/thumbnails\/64.jpg","images\/paadhai-gallery\/thumbnails\/65.jpg","images\/paadhai-gallery\/thumbnails\/66.jpg","images\/paadhai-gallery\/thumbnails\/67.jpg","images\/paadhai-gallery\/thumbnails\/68.jpg","images\/paadhai-gallery\/thumbnails\/69.jpeg","images\/paadhai-gallery\/thumbnails\/7.jpg","images\/paadhai-gallery\/thumbnails\/70.JPG","images\/paadhai-gallery\/thumbnails\/71.jpg","images\/paadhai-gallery\/thumbnails\/72.jpg","images\/paadhai-gallery\/thumbnails\/73.jpg","images\/paadhai-gallery\/thumbnails\/74.jpg","images\/paadhai-gallery\/thumbnails\/75.jpg","images\/paadhai-gallery\/thumbnails\/76.jpg","images\/paadhai-gallery\/thumbnails\/77.jpg","images\/paadhai-gallery\/thumbnails\/78.jpg","images\/paadhai-gallery\/thumbnails\/79.JPG","images\/paadhai-gallery\/thumbnails\/8.jpeg","images\/paadhai-gallery\/thumbnails\/80.JPG","images\/paadhai-gallery\/thumbnails\/81.jpg","images\/paadhai-gallery\/thumbnails\/82.jpg","images\/paadhai-gallery\/thumbnails\/83.JPG","images\/paadhai-gallery\/thumbnails\/84.JPG","images\/paadhai-gallery\/thumbnails\/85.JPG","images\/paadhai-gallery\/thumbnails\/86.JPG","images\/paadhai-gallery\/thumbnails\/87.JPG","images\/paadhai-gallery\/thumbnails\/88.jpg","images\/paadhai-gallery\/thumbnails\/89.JPG","images\/paadhai-gallery\/thumbnails\/9.jpg","images\/paadhai-gallery\/thumbnails\/90.JPG","images\/paadhai-gallery\/thumbnails\/91.jpg","images\/paadhai-gallery\/thumbnails\/92.JPG","images\/paadhai-gallery\/thumbnails\/93.JPG","images\/paadhai-gallery\/thumbnails\/94.jpg","images\/paadhai-gallery\/thumbnails\/95.jpg","images\/paadhai-gallery\/thumbnails\/96.JPG","images\/paadhai-gallery\/thumbnails\/97.jpg","images\/paadhai-gallery\/thumbnails\/98.JPG","images\/paadhai-gallery\/thumbnails\/99.jpeg"];
+   var jm = users.length;
+    var arr= Math.ceil(users.length/8);
+    const page=document.querySelector(".page-num");
+    pageindex=0;
+    var demo = ["demo0","demo1","demo2","demo3", "demo4","demo5","demo6","demo7"];
+    var dem = ["dem0","dem1","dem2","dem3", "dem4","dem5","dem6","dem7"];
+
+    function myFunction(e) {   
+      if(e==-1){
+        if(pageindex==0)
+        return;
+        else{
+          pageindex--;
+        }
+      }
+      else if(e==1){
+        if(pageindex==arr-1)
+        return;
+        else{
+          pageindex++;
+        }
+      }  
+    var j;
+     var i=pageindex*8;
+     for(j=0;j<=7;j++){
+       
+      document.getElementById(demo[j]).src = users[i+j];
+      document.getElementById(dem[j]).href = users[i+j];
+      if (users[i+j] == null || users[i+j] == undefined ||users[i+j] == 0)
+      {
+        document.getElementById(demo[j]).style.display="none";
+      }    
+      
+      else{   
+       document.getElementById(demo[j]).style.display="inline";
+       }    
+     } 
+        
+    page.innerHTML=pageindex+1;       
+    }   
+ </script>  
+ 				</div>
+			</div><!-- end of container -->
+        </section><!-- /.video-card-two -->
+		<section class="site-footer pt-10">
+            <div style="height:75px" class="footer-bottom">
+                <div class="container">
+                    <span style="margin-top:-15px;width: 58px;height: 34px;" class="scroll-to-top scroll-to-target" data-target="html"><i class="far fa-angle-up"></i></span>
+                    <p style="margin-top:-15px">Copyright <b>©</b></a><a style="color:orange;"> PAADHAI </a></p>    
+                </div><!-- /.container -->
+            </div><!-- /.footer-bottom -->
+        </section><!-- /.site-footer -->
+    </div><!-- /.page-wrapper -->
+    	<div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="far fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.php" aria-label="logo image"><img src="assets/imgs/menu-scroller-paadhai-ngo-logo.png" width="101" alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul style="margin-top:-5px" class="mobile-nav__contact list-unstyled">
+                <li>
+                    <a href="Current-NEWS.php">Current NEWS</a>
+                </li>
+                <li>
+                     <a href="contact.php">Contact</a>
+                </li>
+                <li>
+                     <a href="paadhai-gallery.php">Gallery</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <!--<div class="mobile-nav__language">
+                    <select class="selectpicker" id="google_translate_element"></select>
+                </div><!-- /.mobile-nav__language -->
+                <div class="mobile-nav__social">
+                    <!--<a href="#" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/paadhaisociety/" aria-label="facebook"><i class="fab fa-facebook-square"></i></a>-->
+                    <a href="https://www.instagram.com/_paadhai_/" target="blank" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+
+    <!-- template js -->
+    <script src="assets/js/theme.js"></script>
+	
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>	
+	<script src="https://www.jqueryscript.net/demo/lightbox2/dist/js/lightbox.js"></script>
+	<script type="text/javascript">
+      $(document).ready(function(){
+      });
+	  document.getElementById("color").style.color="orange";
+	  document.getElementById("res").style.color="orange";
+</script>
+</body>
+</html>

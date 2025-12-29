@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Paadhai NGO</title>
+    <!-- favicons Icons -->
+    	<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/azino-icons.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+	 <script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" >
+		function resetform()
+			{
+				$("#ename").val("");
+				$("#emailid").val("");
+				$("#mobno").val("");
+				$("#subject").val("");
+				$("#message").val("");
+			}
+
+			function IsEmail(email) 
+			{
+				var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				if(!regex.test(email)) {
+				   return false;
+				}else{
+				   return true;
+				}
+			}
+			
+			function saveform()
+			{
+				var ename=$("#ename").val();
+				var emailid=$("#emailid").val();
+				var mobno=$("#mobno").val();					
+				var subject=$("#subject").val();
+				var message=$("#message").val();
+				
+				
+				if(ename == '')
+				{
+					alert('Please Enter your Name');
+					$("#ename").focus();
+					return false;
+				}
+				
+				if(emailid == '')
+				{
+					alert('Please enter your mail id');
+					$("#emailid").focus();
+					return false;	
+				}
+				
+				if(IsEmail(emailid)==false)
+				{
+					 alert('Invalid email-id');
+					 $("#emailid").focus();
+					 return false;
+				}
+
+				if(mobno == '')
+				{
+					alert('Enter Mobile no.');
+					$("#mobno").focus();
+					return false;
+				}
+				if(mobno.length<10)
+				{
+					alert('Invalid Mobile no.');
+					$("#mobno").focus();
+					return false;
+				}
+				
+				if(mobno.length>10)
+				{
+					alert('Invalid Mobile no.');
+					$("#mobno").focus();
+					return false;
+				}
+				var strUrl='enquirysave.php?ename='+ename+'&emailid='+emailid+'&mobno='+mobno+'&subject='+subject+'&message='+message;	
+				$("#LoadingImage").show();
+				$.ajax({
+					url: strUrl,
+					type: "POST",
+					//data: serializedData,
+					// callback handler that will be called on success
+					success: function(response, textStatus, jqXHR){
+							/*if (response=="caperr")
+							{
+								$("#LoadingImage").hide();
+								alert("Entered characters in the box doesn't match the image!");
+								$('#captcha1').val("");
+								return;
+							}*/
+							$("#LoadingImage").hide();
+							alert('Thanks for your details, will get back to you soon');	
+							$("#ename").val("");					
+							$("#mobno").val("");
+							$("#emailid").val("");
+							$("#subject").val("");
+							$("#message").val("");
+							
+					},
+					// callback handler that will be called on error
+					error: function(jqXHR, textStatus, errorThrown){
+						// log the error to the console
+						console.log(
+							"The following error occured: "+
+							textStatus, errorThrown
+						);
+					},
+				});
+				return true;
+				
+			}
+	</script>
+	<style>
+		.block-title h3{margin-top:20px;}
+		.block-title{margin-bottom:20px;}
+		.contact-card{min-height:300px;}
+		.contact-card i{width:90px;height:90px;}
+		.contact-card p {line-height: normal;}
+		.contact-card h3 { margin-top: 12px; margin-bottom: 16px;}
+	</style>
+</head>
+
+<body>
+    <div class="preloader">
+        <img class="preloader__image" src="assets/imgs/paadhai_ngo_logo.png" alt="paadhai_ngo_logo" />
+    </div><!-- /.preloader -->
+    <div class="page-wrapper">
+         <header class="main-header">
+            <div class="container">
+                <div class="inner-container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-2">
+                            <div style="margin-top:-10px;"class="logo-box">
+                                <a href="index.php#home" aria-label="logo image"><img style="margin-left:-40px;margin-top:10px;" class="left-logo" src="assets/imgs/paadhai_ngo_logo.png" title="Paadhai NGO" width="80" alt="Paadhai NGO"></a>
+                                <span class="fa fa-bars mobile-nav__toggler"></span>
+                            </div><!-- /.logo-box -->
+                        </div><!-- /.col-sm-12 -->
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10 d-none d-md-none d-lg-none d-xl-block">
+                            <nav class="main-menu dynamic-radius">
+                                <ul class="main-menu__list">
+                                    <li> <a href="index.php"><i id="color" class="fa fa-home"></i></a>  </li>
+                                    <li class="dropdown">
+                                        <a href="index.php#second">Paadhai, The Way </a>
+                                        <ul>
+                                            <li><a href="paadhai-philosophy.php">Paadhai Philosophy </a></li>
+                                            <li><a href="what-we-do.php">What we do? </a></li>
+											<li><a href="our-people.php">Our People</a></li>
+                                        </ul>
+                                    </li>
+									<li class="dropdown"><a href="index.php#third">Our Programs</a>
+                                        <ul>
+                                            <li><a href="education-training.php">Education </a></li>
+											<li><a href="community-support.php">Community Support &  Development </a></li>
+											<li><a href="sustainable-environment.php">Sustainable Environment </a></li>
+											<li><a href="our-projects.php">Our Projects </a></li>
+                                        </ul>
+                                    </li>
+									<li class="dropdown"><a href="index.php#fourth">Our Stories</a>
+                                        <ul>
+											<li><a href="supplementary.php">Supplementary Education centers</a></li>
+                                            <li><a href="tribal.php">Tribal School and Community Development </a></li>
+                                            <li><a href="reforestation.php">Reforestation, with livelihood support </a></li>
+											<li><a href="content.php">Content curation and Mentoring </a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="dropdown"><a href="index.php#fifth">Get Involved & Make a difference</a>
+                                        <ul>
+											<li><a href="donation.php">Donate</a></li>
+											<li><a href="volunteers.php">Volunteer</a></li>
+                                            <li><a href="fundraise.php">Fundraise</a></li>
+                                        </ul>
+                                    </li>
+
+									<li><a id="res" href="index.php#sixth">Resources</a></li>
+                                    
+                                </ul>
+                                <!-- /.main-menu__list -->
+                            </nav>
+                            <!-- /.main-menu -->
+                            <!--<div class="main-header__info">
+                                <ul class="list-unstyled main-header__info-list">
+                                    <li>
+                                        <i class="azino-icon-email"></i>
+                                        <a href="mailto:support@paadhai.org">support@paadhai.org</a>
+                                    </li>
+                                    <li>
+                                        <i class="azino-icon-telephone"></i>
+                                        <a href="tel:08041103132">080-41103132</a>
+                                    </li>
+                                </ul><!-- /.list-unstyled -->
+                                <!--<div class="main-header__language">
+                                    
+                                    <label for="language-header" class="sr-only">select language</label>
+                                    <select class="selectpicker" id="google_translate_element"></select>
+                                </div><!-- /.main-header__language -->
+                            <!--</div>--><!-- /.main-header__info -->
+                        </div><!-- /.col-sm-12 -->
+                    </div><!-- /.row -->
+                </div><!-- /.inner-container -->
+            </div><!-- /.container -->
+        </header><!-- /.main-header -->
+
+        <div class="stricky-header stricked-menu">
+            <div class="container">
+                <div class="logo-box">
+                    <a href="index.php"><img src="assets/imgs/paadhai_ngo_logo.png" title="Paadhai NGO" width="101" alt="PAADHAI NGO" /></a>
+                </div><!-- /.logo-box -->
+                <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+            </div><!-- /.container -->
+        </div><!-- /.stricky-header -->
+        
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/banner.jpg);"></div>
+            <!-- /.page-header__bg -->
+            <div class="container">
+                <h2>Contact Us</h2>
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+        
+		
+        <div class="contact-card-carousel pt-50 pb-20">
+            <div class="container">
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 30, "slidesPerView": 3, "breakpoints": {
+                "0": {
+                    "spaceBetween": 0,
+                    "slidesPerView": 1
+                },
+                "480": {
+                    "spaceBetween": 0,
+                    "slidesPerView": 1
+                },
+                "767": {
+                    "spaceBetween": 30,
+                    "slidesPerView": 2
+                },
+                "1199": {
+                    "spaceBetween": 30,
+                    "slidesPerView": 3
+                }
+            }}'>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="contact-card d-flex flex-column text-center justify-content-center align-items-center background-secondary" style="background-image: url(assets/images/shapes/contact-card-bg-1-1.png);">
+                                <i aria-label="contact icon" class="azino-icon-family"></i>
+                                <h3>We would be happy to hear from you!</h3>
+                                <p>For queries, project details or to just send a word of encouragement, drop an E- mail to any of our key contacts:</p>
+                            </div><!-- /.contact-card -->
+                        </div><!-- /.swiper-slide -->
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="contact-card d-flex flex-column text-center justify-content-center align-items-center background-primary" style="background-image: url(assets/images/shapes/contact-card-bg-1-1.png);">
+                                <i aria-label="contact icon" class="azino-icon-address"></i>
+                                <h3>Address</h3>
+                                <p>C/o Ramsoft Technologies Pvt. Ltd.<br/> 104/A, 4th Cross Phase I, Electronic City,<br/>Hosur Road, Bangalore – 560100, INDIA</p>
+                            </div><!-- /.contact-card -->
+                        </div><!-- /.swiper-slide -->
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="contact-card d-flex flex-column text-center justify-content-center align-items-center background-special" style="background-image: url(assets/images/shapes/contact-card-bg-1-1.png);">
+                                <i aria-label="contact icon" class="azino-icon-contact"></i>
+                                <h3>Contact</h3>
+                                <p><a href="mailto:support@paadhai.org">support@paadhai.org</a> <br> <a href="tel:080-41103132">+91 080 4110 3132</a></p>
+                            </div><!-- /.contact-card -->
+                        </div><!-- /.swiper-slide -->
+                    </div><!-- /.swiper-wrapper -->
+                </div><!-- /.thm-swiper__slider -->
+            </div><!-- /.container -->
+        </div><!-- /.contact-card-carousel -->
+		<section class="contact-page pt-30 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="contact-page__content mb-40">
+                           
+                            <div class="google-map__contact">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.9952819191194!2d77.65965531468422!3d12.843580990940005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b7f69be3c9f%3A0x53791def3a95adc3!2sRamsoft%20Technologies%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1603173005666!5m2!1sen!2sin" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div><!-- /.google-map -->
+                        </div><!-- /.contact-page__content -->
+                    </div><!-- /.col-lg-5 -->
+                    <div class="col-lg-7">
+						 <div class="block-title">
+                                <p><img src="assets/images/shapes/heart-2-1.png" width="15" alt="">Contact Us</p>
+                                <h3>For Volunteering, Donating or Support needs </h3>
+                            </div><!-- /.block-title -->
+                        <div class="contact-page__form form-one mb-40">
+                            <div class="form-group">
+                                <div class="form-control">
+                                    <label for="name" class="sr-only">Name</label>
+                                    <input type="text" name="ename" id="ename" placeholder="Your Name">
+                                </div><!-- /.form-control -->
+                                <div class="form-control">
+                                    <label for="email" class="sr-only">email</label>
+                                    <input type="text" name="emailid" id="emailid" placeholder="Email Address">
+                                </div><!-- /.form-control -->
+                                <div class="form-control">
+                                    <label for="phone" class="sr-only">phone</label>
+                                    <input type="text" name="mobno" id="mobno" placeholder="Phone Number">
+                                </div><!-- /.form-control -->
+                                <div class="form-control">
+                                    <label for="subject" class="sr-only">subject</label>
+                                    <input type="text" name="subject" id="subject" placeholder="Subject">
+                                </div><!-- /.form-control -->
+                                <div class="form-control form-control-full">
+                                    <label for="message" class="sr-only">message</label>
+                                    <textarea name="message" placeholder="Write a Message" id="message"></textarea>
+                                </div><!-- /.form-control -->
+                                <div class="form-control form-control-full">
+                                    <button onClick="saveform();" type="submit" name="submit-form" class="thm-btn dynamic-radius">Submit Message</button>
+										<div id="LoadingImage" style="display:none;">
+													<img src="images/loading.svg"/>
+												</div>
+                                    <!-- /.thm-btn dynamic-radius -->
+                                </div><!-- /.form-control -->
+                            </div><!-- /.form-group -->
+                        </div><!-- /.contact-page__form -->
+                        <div class="result"></div><!-- /.result -->
+                    </div><!-- /.col-lg-7 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.contact-page -->
+
+        
+        <section class="site-footer pt-50">
+            <div class="footer-bottom">
+                <div class="container">
+                    <span class="scroll-to-top scroll-to-target" data-target="html"><i class="far fa-angle-up"></i></span>
+                    <p>Copyright <b>©</b><a style="color:orange;"> PAADHAI</a> <p>
+                   
+                </div><!-- /.container -->
+            </div><!-- /.footer-bottom -->
+        </section><!-- /.site-footer -->
+
+    </div><!-- /.page-wrapper -->
+
+
+     	<div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="far fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.php" aria-label="logo image"><img src="assets/imgs/menu-scroller-paadhai-ngo-logo.png" width="101" alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="azino-icon-email"></i>
+                    <a href="mailto:support@paadhai.org">support@paadhai.org</a>
+                </li>
+                <li>
+                    <i class="azino-icon-telephone"></i>
+                     <a href="tel:08041103132">080-41103132</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__language">
+                    <select class="selectpicker" id="google_translate_element"></select>
+                </div><!-- /.mobile-nav__language -->
+                <div class="mobile-nav__social">
+                    <a href="#" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/paadhaisociety/" aria-label="facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+   
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+
+    <!-- template js -->
+    <script src="assets/js/theme.js"></script>
+	
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+		
+		 $(document).ready(function(){
+      });
+	  document.getElementById("color").style.color="orange";
+	  document.getElementById("res").style.color="orange";
+	</script>
+
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

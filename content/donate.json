@@ -1,0 +1,21 @@
+{
+  "intro": "Support Paadhai\u2019s education, community development, and environmental programs. Below are legacy donation details preserved from the existing site.",
+  "inr": {
+    "account_name": "PAADHAI",
+    "account_number": "625301223439",
+    "bank": "ICICI BANK",
+    "branch": "No.80/7, Elephant Rock Road III Block, Jayanagar, Bangalore \u2013 560011, INDIA",
+    "ifsc": "ICIC0000053",
+    "note": "INR remittances only."
+  },
+  "wire": {
+    "account_name": "PAADHAI",
+    "fcra_number": "40253010772",
+    "bank": "STATE BANK OF INDIA",
+    "branch": "FCRA Cell, 4 Floor, ND New Branch-11, Parliament Street, New Delhi-110001, INDIA",
+    "swift": "SBININBB104",
+    "purpose_code": "P1303",
+    "note": "All Foreign Currency remittances."
+  },
+  "online_hint": "If you\u2019d like, we can add a modern online donation flow (Razorpay/Stripe) and auto-generate receipts."
+}

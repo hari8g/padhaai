@@ -1,0 +1,97 @@
+{
+  "brand": "Padhaai",
+  "tagline": "Educate all",
+  "hero": {
+    "slides": [
+      {
+        "title": "Give her the Gift of Knowledge",
+        "image": "/legacy/ghtgok.jpg",
+        "donateLink": "/donate"
+      },
+      {
+        "title": "Shape Their Future",
+        "image": "/legacy/bn12.jpg",
+        "donateLink": "/donate"
+      },
+      {
+        "title": "Extend Your Compassion",
+        "image": "/legacy/bn13.jpg",
+        "donateLink": "/donate"
+      }
+    ],
+    "subtitle": "Padhaai Trust is a Registered Public Charitable Trust providing educational assistance to children who desire to study but lack the economic resources. We advocate inclusive education and focus on Bangalore and surrounding villages."
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About Us",
+      "href": "/about",
+      "children": [
+        {
+          "label": "Founder",
+          "href": "/about/founder"
+        }
+      ]
+    },
+    {
+      "label": "Participate",
+      "href": "/participate"
+    },
+    {
+      "label": "Gallery",
+      "href": "/gallery"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Contact Us",
+      "href": "/contact"
+    }
+  ],
+  "footer": {
+    "tagline": "Educate all",
+    "quickLinks": [
+      {
+        "label": "Stationery and Uniforms",
+        "href": "/programs/stationery-uniforms"
+      },
+      {
+        "label": "Libraries",
+        "href": "/programs/libraries"
+      },
+      {
+        "label": "Notebook Donation",
+        "href": "/programs/notebook-donation"
+      },
+      {
+        "label": "Scholarships",
+        "href": "/scholarships"
+      },
+      {
+        "label": "Participate",
+        "href": "/participate"
+      },
+      {
+        "label": "Gallery",
+        "href": "/gallery"
+      }
+    ],
+    "contact": "Padhaai Trust ®\nRegistered Public Charitable Trust\nBangalore, Karnataka, India",
+    "copyright": "Copyright © 2025 Padhaai Trust. All rights reserved."
+  },
+  "legacy": {
+    "baseUrl": "https://padhaai.org.in",
+    "pages": [
+      {
+        "slug": "index",
+        "url": "https://padhaai.org.in"
+      }
+    ],
+    "resources": []
+  }
+}
