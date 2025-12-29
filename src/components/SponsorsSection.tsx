@@ -9,7 +9,8 @@ interface SponsorsSectionProps {
 export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate sponsors for seamless loop
+  // Duplicate sponsors for seamless infinite loop (need at least 2 copies)
+  // This ensures smooth looping without gaps
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
   return (
@@ -47,7 +48,11 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
             }}
           >
             {duplicatedSponsors.map((sponsor, index) => (
-              <SponsorCard key={`${sponsor}-${index}`} sponsor={sponsor} index={index} />
+              <SponsorCard 
+                key={`${sponsor}-${index}`} 
+                sponsor={sponsor} 
+                index={index}
+              />
             ))}
           </div>
         </div>
