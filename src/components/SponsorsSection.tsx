@@ -9,8 +9,10 @@ interface SponsorsSectionProps {
 export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate sponsors for seamless infinite loop (need at least 2 copies)
-  // This ensures smooth looping without gaps
+  // Duplicate sponsors multiple times for seamless infinite loop
+  // Calculate the width needed: each card is ~224px (w-56) + gap (24px) = ~248px
+  // For 29 sponsors: ~7192px per set
+  // We need at least 2 full sets visible + 1 more for seamless loop
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
   return (
@@ -38,13 +40,11 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
         {/* Carousel */}
         <div className="overflow-hidden">
           <div
-            className={`flex gap-6 ${
-              isPaused ? "animate-none" : "animate-scroll"
-            }`}
+            className="flex gap-6"
             style={{
               animation: isPaused
                 ? "none"
-                : "scroll 5s linear infinite",
+                : "scroll 30s linear infinite",
             }}
           >
             {duplicatedSponsors.map((sponsor, index) => (

@@ -75,6 +75,7 @@ a:hover {
     transform: translateX(0);
   }
   100% {
+    /* Move exactly one full set of sponsors (1/3 of total since we have 3 copies) */
     transform: translateX(calc(-100% / 3));
   }
 }
@@ -193,7 +194,7 @@ a:hover {
 }
 
 .animate-scroll {
-  animation: scroll 5s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .animate-text-glow {
