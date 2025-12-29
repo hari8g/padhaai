@@ -43,7 +43,7 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
             style={{
               animation: isPaused
                 ? "none"
-                : "scroll 15s linear infinite",
+                : "scroll 5s linear infinite",
             }}
           >
             {duplicatedSponsors.map((sponsor, index) => (
