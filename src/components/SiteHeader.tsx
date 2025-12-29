@@ -11,13 +11,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-200/50">
       <div className="mx-auto max-w-7xl px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
-        <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center hover:opacity-90 transition-all duration-300 hover-lift">
           <Image
             src="/images/paadhai.png"
             alt={site.brand}
             width={180}
             height={60}
-            className="h-12 md:h-14 w-auto"
+            className="h-12 md:h-14 w-auto transition-transform duration-300"
             priority
           />
         </Link>
@@ -29,10 +29,10 @@ export function SiteHeader() {
               <div className="flex items-center gap-1 section-glow px-3 py-2 rounded-lg">
                 <Link 
                   href={n.href} 
-                  className="hover:text-neutral-900 transition-colors relative inline-block z-10"
+                  className="hover:text-neutral-900 transition-all duration-300 relative inline-block z-10 elegant-link"
                 >
                   {n.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-neutral-900 group-hover:w-full transition-all duration-500 ease-out"></span>
                 </Link>
                 {n.children && n.children.length > 0 && (
                   <svg 
