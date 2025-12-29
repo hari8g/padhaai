@@ -40,20 +40,22 @@ function SponsorCard({ sponsor, index }: { sponsor: string; index: number }) {
 
   return (
     <div
-      className="flex-shrink-0 group"
+      className="flex-shrink-0 md:flex-shrink group animate-fade-in-up"
+      style={{ animationDelay: `${index * 0.05}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
         className={`
-          relative w-48 md:w-56 h-32 md:h-36 
+          relative w-48 md:w-full h-32 md:h-36 
           rounded-lg border-2
           bg-white/90 backdrop-blur-sm
           p-6 text-center
-          transition-all duration-700 ease-out
+          transition-all duration-500 ease-out
           overflow-hidden
+          card-elegant
           ${isHovered 
-            ? 'border-red-500 shadow-2xl scale-125 transform -translate-y-4 z-20' 
+            ? 'border-red-500 shadow-xl scale-105 transform -translate-y-2 z-20' 
             : 'border-neutral-200 shadow-sm hover:border-neutral-300'
           }
         `}
